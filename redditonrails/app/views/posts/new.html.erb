@@ -1,0 +1,25 @@
+<h1>Create a post to SubReddit: </h1>
+
+<form action="<%=posts_url%>" method="post">
+  <label>Title
+    <input type="text" name="post[title]" value="<%=@post.title%>">
+  </label>
+  <br>
+  <br>
+  <label>URL
+    <input type="text" name="post[url]" value="<%=@post.url%>">
+  </label>
+  <br>
+  <br>
+  <label>Content
+    <textarea name="post[content]" rows="8" cols="40"><%=@post.content%></textarea>
+  </label>
+  
+  <% Sub.all.each do |sub| %>
+  <br>
+    <input type="checkbox" name="post[sub_ids][]" value="<%=sub.id%>">
+    <%= sub.title %>
+  <% end %>
+  <br>
+  <input type="submit" name="" value="Create a new post">
+</form>

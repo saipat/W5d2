@@ -1,0 +1,21 @@
+<br>
+<a href="<%=subs_url%>">Reddit Homepage</a>
+<h1><small>SubReddit: </small><%=@sub.title%></h1>
+<%= @sub.description %>
+<form action="<%=new_post_url%>" method="get">
+  <input type="hidden" name="sub[title]" value="<%=@sub.title%>">
+  <input type="hidden" name="sub[id]" value="<%=@sub.id%>">
+  <input type="submit" name="" value="New Post">
+</form>
+<br>
+
+<ul>
+<% @sub.posts.each do |post| %>
+  <li><a href="<%=post_url(post)%>"><%=post.title%></a>
+    <br>
+    <%= post.url %>
+    <br>
+    <%= post.content %>
+  </li>  
+<% end %>
+</ul>

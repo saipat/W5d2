@@ -1,0 +1,15 @@
+<h1>Welcome to Reddit</h1>
+<h2>Select a subreddit from our list below:</h2>
+
+<ul>
+  <% @subs.each do |sub| %>
+    <li><a href="<%=sub_url(sub)%>"><%= sub.title%></a>
+      <br>
+      <%= sub.description %>
+      <form action="<%= edit_sub_url(sub) %>" method="get">
+        <input type="submit" name="" value="Edit Sub">
+      </form>
+      <br>
+    </li>
+  <% end %>
+</ul>

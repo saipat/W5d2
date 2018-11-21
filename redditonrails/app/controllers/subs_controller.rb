@@ -1,6 +1,6 @@
 class SubsController < ApplicationController
   
-  before_action :require_login
+  before_action :require_login, only: [:create, :update, :edit]
   
   def new
     @sub = Sub.new
